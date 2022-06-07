@@ -1,0 +1,30 @@
+update to most recently updated raylib stuff, makes things easier.
+
+need to make it so that when you select the grid thing, it shows a faint grid and whatnot.
+
+then it goes to create point mode
+
+also, mode 1 is just point manipulation
+
+-------------------------------------------------
+..4/30/2022..
+alrighty, we need to be able to select multiple points. also, make point selection not random lmao.
+
+yeah we gonna start making faces :D:D:D:D
+
+
+also, make the point radius an actual variable pls...
+
+--------------------------------------------------
+..5/18/2022..
+okey... i wanna make faces.
+
+5/24 - todo:
+-replace literal values with variables (like BLACK to LINE_COLOR for example)
+-decide on a contral scheme and gui
+-ability to multiple points at the same time
+-fix y-axis mode 2 thing where it doesn't expand when you get to the bottom of it
+-make every variable changable like having point size and whatnot be modifiable
+-also, be able to flag on or off whether you can see faces or points or whatever
+-possibly make faces transparent or something?
+-fix multiple points in same place (make 2 points and move one to bcheck this)
