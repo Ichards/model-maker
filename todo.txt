@@ -27,4 +27,36 @@ okey... i wanna make faces.
 -make every variable changable like having point size and whatnot be modifiable
 -also, be able to flag on or off whether you can see faces or points or whatever
 -possibly make faces transparent or something?
--fix multiple points in same place (make 2 points and move one to bcheck this)
++fix multiple points in same place (make 2 points and move one to bcheck this) (6/9/2022)
+
+6/7 - thoughts:
+i have a rough idea for how i'd like the program to be set up.
+everything starts with a point, and the already implemented grid system rigamaroo is fine for that ig
+however, points should be able to be made in relation to other points.
+for example, you should be able to select a point and make another point that's down the x axis from it, for example.
+Or, you could go down the x axis and make a psuedopoint and use it as a reference to make the real point (or continue making "pseudopoints")
+another idea is being able to make points using a selected point as a center and making new one's at a certain angle from the center with a certain radius and whatnot
+note:
+-trying to fix the multiple points issue has led me to the conclusion that floats are stupid and should be replaced or something.
+-maybe floats aren't a big problem but i'd like better precision. i can just use epsilon to compare for now however
+
+6/11 - thoughts:
+the size of points should be based on how they far away they are from the camera; basically,they're a constant size
+control scheme will be:
+mouse + QWEASD keys + space. Q+A will be used to go back and forth in one axis, and so on. space shifts modes
+modes:
+0. blank
+1. modify points mode (single or multiple points)
+2. create new point mode (absolute)
+3. create noew point mode (relative to other single point)
+4. create face (multiple points)
+
+blank (0 points selected) (space)-> 2 --> blank
+blank (1 point selected) (space)-> 3 --> blank
+blank (1 point selected) = 1 --> blank/1
+blank (multiple points selected) (space)-> 4
+blank (multiple points selected) = 1
+
+-> = transition to new "mode"
+= mode is already implied
+--> = you do whatever and eventually end up transitioning after you do what you need to

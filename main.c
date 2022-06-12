@@ -1,9 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "math.h"
 #include "raylib.h"
 
 #define V3(x, y, z) ((Vector3){x, y, z})
+
+bool f_equal(float f1, float f2) {
+    float val = f2 - f1;
+    if (val < 0) {
+        val *= -1;
+    }
+
+    if (val < 0.0001) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
 
 void draw_cross(Vector3 center, int lines_no, float unit_size, Color grid_color) {
     DrawLine3D(V3(center.x - (lines_no / 2) * unit_size, center.y, center.z), V3(center.x + (lines_no / 2) * unit_size, center.y, center.z), BLACK);
@@ -31,10 +46,9 @@ void draw_y_axis(Vector3 center, int lines_no, float unit_size) {
     }
 }
 
-//all_points[current_point++] = click_point;
 bool check_for_point(Vector3* point_list, int list_size, Vector3 point) {
     for (int i=0; i<list_size; i++) {
-        if (point_list[i].x == point.x && point_list[i].y == point.y && point_list[i].z == point.z) {
+        if (f_equal(point_list[i].x, point.x) && f_equal(point_list[i].y, point.y) && f_equal(point_list[i].z, point.z)) {
             return true;
         }
     }
@@ -114,8 +128,8 @@ int main(void)
         UpdateCamera(&camera);
         
         if (IsKeyDown('Z')) camera.target = (Vector3){ 0.0f, 0.0f, 0.0f };
-        if (IsKeyPressed(KEY_W)) grid_interval += 0.25f;
-        if (IsKeyPressed(KEY_S)) grid_interval -= 0.25f;
+        if (IsKeyPressed(KEY_P)) grid_interval += 0.25f;
+        if (IsKeyPressed(KEY_L)) grid_interval -= 0.25f;
         if (IsKeyPressed(KEY_A)) lines_no += 2;
         if (IsKeyPressed(KEY_D)) lines_no -= 2;
         //if (IsKeyPressed(KEY_LEFT)) current_mode = 3;
